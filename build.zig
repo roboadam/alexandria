@@ -10,8 +10,6 @@ pub fn build(b: *std.Build) void {
         .target = target,
         .optimize = optimize,
     });
-    const mod_sokol = b.addModule("sokol", .{ .root_source_file = b.path("sokol/src/sokol/sokol.zig") });
-    exe.root_module.addImport("sokol", mod_sokol);
 
     b.installArtifact(exe);
     const run_cmd = b.addRunArtifact(exe);
